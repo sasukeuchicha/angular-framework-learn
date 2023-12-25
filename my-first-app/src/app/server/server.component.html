@@ -1,1 +1,5 @@
-<p>server works!</p>
+<h1>Server Info</h1>
+<p>Server ID is {{ serverId }} and return from function {{ getServerId()}}</p>
+<p>Server Name is {{ serverName }}</p>
+<button class="btn btn-primary" [disabled]="notAllowCreateNewServer" (click)="createNewServer()">Create New Server</button>
+<p>creation of new server is {{!notAllowCreateNewServer}}</p>
