@@ -1,0 +1,34 @@
+<app-irctc-stock
+  (stockNameEmmiter)="handleStockName($event)"
+  (stockValueEmitter)="handleStockPrice($event)"
+></app-irctc-stock>
+<app-nestle-stock
+  (stockNameEmmiter)="handleStockName($event)"
+  (stockValueEmitter)="handleStockPrice($event)"
+></app-nestle-stock>
+
+<h4>Holdings</h4>
+<h2>Stocks In Holding</h2>
+<h5>Current Total Price: {{ totalCurrentPrice }}</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Stock ID</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stockId of holdings.keys()">
+      <td>{{ stockId }}</td>
+      <td>{{ holdingsName.get(stockId) }}</td>
+      <td>{{ holdings.get(stockId) }}</td>
+      <td>{{ holdingsPrice.get(stockId) }}</td>
+      <td>
+        {{ (holdingsPrice.get(stockId) ?? 0) * (holdings.get(stockId) ?? 0) }}
+      </td>
+    </tr>
+  </tbody>
+</table>

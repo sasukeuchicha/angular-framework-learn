@@ -1,0 +1,21 @@
+<div *ngFor="let stock of stocksNeeded">
+  <p>
+    Price for stock and quantity: {{ stock.stockPrice * stock.stockQuantity }}
+  </p>
+  <p>
+    Price:<input
+      type="number"
+      [(ngModel)]="stock.stockPrice"
+      placeholder="Price"
+      (input)="informPriceChange()"
+    />
+  </p>
+  <p>
+    Qty:<input
+      type="number"
+      [(ngModel)]="stock.stockQuantity"
+      placeholder="Quantity"
+      (input)="informQuantityChange()"
+    />
+  </p>
+</div>

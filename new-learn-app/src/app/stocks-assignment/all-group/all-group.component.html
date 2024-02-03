@@ -1,0 +1,15 @@
+<h3>All groups</h3>
+
+<ul *ngFor="let group of groups">
+  <li>Group Id: {{ group.groupId }}</li>
+  <li>Group Name: {{ group.groupName }}</li>
+  <li>Stocks Under Group: {{ group.stocksByIds }}</li>
+  <li>Group Total: {{ group.groupTotal }}</li>
+  <li>
+    Stock Info:
+    <app-all-stocks
+      [stocksNeeded]="getAllStocks(group.stocksByIds)"
+      (stockEmitter)="changes(group.groupId, group.stocksByIds)"
+    />
+  </li>
+</ul>
